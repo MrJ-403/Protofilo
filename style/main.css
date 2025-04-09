@@ -1,0 +1,18 @@
+body {
+    display: block;
+    background-color: rgba(126, 126, 126, 0.22);
+    font-size: medium;
+    font-family: 'cocon';
+}
+
+img[src$="owner.jfif"] {
+    width: 10vw;
+}
+
+figure {
+    display: flex;
+    width: 10vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-size: 1.7vw;
+}

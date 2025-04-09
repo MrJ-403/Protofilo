@@ -1,0 +1,54 @@
+body {
+    font-family: cursive, fantasy, Arial, Helvetica, sans-serif;
+    justify-content: center;
+    justify-self: center;
+    text-align: justify;
+    font-weight: 600;
+    text-shadow: 
+    0px -1px 0px  white,
+    -1px 0px 0px  white,
+    1px  0px  0px white,
+    0px  1px  0px white;
+}
+
+form {
+    /* padding-top:10vh;
+    padding-right: 10vw; */
+    padding: 10vh 10vw;
+    border: 1px solid white;
+}
+
+h1 {
+    text-align: center;
+}
+input, aside{
+    display: block;
+    align-self: center;
+    justify-self: center;
+    /* border: none; */
+}
+
+input[type="submit"] {
+    text-decoration: none;
+    text-shadow: none;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition-duration: 450ms;
+    font-family: cursive, fantasy, Arial, Helvetica, sans-serif;
+}
+
+input[type="submit"]:hover {
+    color: black;
+    background-color:white;
+    border: 2px solid black;
+    font-size: large;
+}
+
+input[type="submit"]:active {
+    color: black;
+    background-color:burlywood;
+    border: 2px solid black;
+    font-size: large;
+}

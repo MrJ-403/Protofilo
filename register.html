@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" style="scrollbar-color: white transparent;">
+    <head>
+        <title>A test WebPage</title>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="style/form.css"/>
+    </head>
+    <body>
+        <form method="post">
+            <h1>Register</h1>
+            <label>Name:</label>
+            <input type="text"/>
+            <label>Email:</label>
+            <input type="email"/>
+            <label>Password:</label>
+            <input type="password"/><br>
+            <input type="submit" value="Register"/>
+        </form>
+        <aside>Already have an Account? <a href="#" onclick="loginForm()">Login!</a></aside>
+    </body>
+    <script>
+        function loginForm() {
+            document.getElementsByTagName("h1")[0].innerHTML = 'Login';
+            document.getElementsByTagName("label")[1].hidden = true;
+            document.getElementsByTagName("input")[1].style.display = 'none';
+            document.getElementsByTagName("input")[1].disabled = true;
+            document.getElementsByTagName("input")[1].hidden = true;
+            document.getElementsByTagName("aside")[0].innerHTML = `Don't have an Account? <a href='#' onclick='registerForm()'>Register!</a>`;
+            document.getElementsByTagName("input")[3].value = 'Login';
+        }
+        function registerForm() {
+            document.getElementsByTagName("h1")[0].innerHTML = 'Register';
+            document.getElementsByTagName("label")[1].hidden = false;
+            document.getElementsByTagName("input")[1].style.display = 'block';
+            document.getElementsByTagName("input")[1].disabled = false;
+            document.getElementsByTagName("input")[1].hidden = false;
+            document.getElementsByTagName("aside")[0].innerHTML = `Already have an Account? <a href='#' onclick='loginForm()'>Login!</a>`;
+            document.getElementsByTagName("input")[3].value = 'Register';
+        }
+    </script>
+</html>

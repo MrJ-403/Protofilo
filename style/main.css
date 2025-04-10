@@ -13,12 +13,15 @@ body {
     /* -webkit-text-stroke: 1.5px rgb(0, 0, 0) ; */
 }
 
+header {
+    grid-area: header;
+    background-color: black;
+    word-wrap: break-word;
+}
+
 @media screen and (orientation:landscape){
     
     header.main {
-        grid-area: header;
-        background-color: black;
-        word-wrap: break-word;
         display: flex;
         align-items: center;
         flex-direction: row;
@@ -48,9 +51,6 @@ body {
 @media screen and (orientation:portrait){
     
     header.main {
-        grid-area: header;
-        background-color: black;
-        word-wrap: break-word;
         display: block;
         /* align-items: center; */
         /* flex-direction: row; */
@@ -62,7 +62,6 @@ body {
 }
     
 header.projects {
-    background-color: black;
     padding: 10px 20px;
 }
 

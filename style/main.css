@@ -1,5 +1,9 @@
 body {
-    display: block;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "article article aside"
+    "article article aside";
     margin: 10px 20px;
     color: white;
     font-size: larger;
@@ -12,21 +16,48 @@ body {
 @media screen and (orientation:landscape){
     
     header.main {
+        grid-area: header;
         background-color: black;
         word-wrap: break-word;
         display: flex;
         align-items: center;
         flex-direction: row;
     }
+
+    aside.skills {
+        grid-area: aside;
+        background: black;
+        padding: 5px;
+    }
+
+    aside.skills table{
+        border-spacing: 2px 20px;
+        text-align: left;
+    }
+
+    .progress-container{
+        background: rgba(50, 50, 50, 0.5);
+    }
+
+    .progress-bar{
+        font-size:80%;
+        text-align: right;
+        background-color: chocolate;
+    }
 }
 @media screen and (orientation:portrait){
     
     header.main {
+        grid-area: header;
         background-color: black;
         word-wrap: break-word;
         display: block;
         /* align-items: center; */
         /* flex-direction: row; */
+    }
+
+    aside.skills {
+        display: none;
     }
 }
     
@@ -36,6 +67,7 @@ header.downloads {
 }
 
 article{
+    grid-area: article;
     padding: 10px 20px;
     background-color: rgba(0, 0, 0, 0.5);
 }

@@ -1,10 +1,5 @@
 body {
     display: grid;
-    grid-template-areas: 
-    "header header header"
-    "article article aside"
-    "article article aside";
-    margin: 10px 20px;
     color: white;
     font-size: larger;
     font-family: Arial, Helvetica, sans-serif;
@@ -19,48 +14,40 @@ header {
     word-wrap: break-word;
 }
 
-@media screen and (orientation:landscape){
-    
-    header.main {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-    }
 
-    aside.skills {
-        grid-area: aside;
-        background: black;
-        padding: 5px;
-    }
 
-    aside.skills table{
-        border-spacing: 2px 20px;
-        text-align: left;
-    }
-
-    .progress-container{
-        background: rgba(50, 50, 50, 0.5);
-    }
-
-    .progress-bar{
-        font-size:80%;
-        text-align: right;
-        background-color: chocolate;
-    }
+aside.skills {
+    grid-area: aside;
+    background: black;
+    padding: 5px;
 }
-@media screen and (orientation:portrait){
-    
-    header.main {
-        display: block;
-        /* align-items: center; */
-        /* flex-direction: row; */
-    }
 
-    aside.skills {
-        display: none;
-    }
+aside.skills table{
+    border-spacing: 2px 20px;
+    text-align: left;
 }
-    
+
+.progress-container{
+    background: rgba(50, 50, 50, 0.5);
+}
+
+.progress-bar{
+    font-size:80%;
+    text-align: right;
+    background-color: chocolate;
+}
+
+img[src$="owner.jfif"] {
+    border-radius: 50%;
+}
+
+figure {
+    float: left;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    font-size: 1.7vw;
+}
+
 header.projects {
     padding: 10px 20px;
 }
@@ -71,19 +58,6 @@ article{
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-img[src$="owner.jfif"] {
-    width: 13vw;
-    border-radius: 50%;
-}
-
-figure {
-    float:left;
-    width: 10vw;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    font-size: 1.7vw;
-}
-
 #smallAbout {
     display: inline;
     font-family: sans-serif, Arial, Helvetica, serif;
@@ -91,4 +65,80 @@ figure {
     font-size: x-large;
     letter-spacing: 0.8px;
     -webkit-text-stroke: 0.8px black;
+}
+@media screen and (orientation:landscape){
+    
+    body{
+        grid-template-areas: 
+        "header header header"
+        "article article aside"
+        "article article aside";
+        margin: 10px 20px;
+        grid-template-columns: 20% 60% 20%;
+    }
+    
+    img[src$="owner.jfif"] {
+        width: 13vw;
+    }    
+    
+    figure {
+        width: 10vw;
+    }
+    
+    
+    header.main {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+    
+    aside.skills {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media screen and (orientation:portrait){
+
+    body {
+        grid-template-areas: 
+        "header header header"
+        "aside aside aside"
+        "article article article";
+    }
+
+    img[src$="owner.jfif"] {
+        width: 13vh;
+    }
+    
+    figure {
+        width: 10vh;
+    }
+    
+    header.main {
+        display: block;
+        padding: 5px;
+        /* align-items: center; */
+        /* flex-direction: row; */
+    }
+    
+    aside.skills {
+        display: flex;
+        flex-direction: row;
+        overflow-x: scroll;
+    }
+
+    .progress-container {
+        width: 20vh;
+    }
+
+    .progress-bar{
+        font-size: 100%;
+    }
+
+    .label {
+        display: inline-block;
+        width: max-content;
+        text-wrap: nowrap;
+        margin: 0px 10px;
+    }
 }

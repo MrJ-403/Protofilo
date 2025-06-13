@@ -35,55 +35,76 @@
         </p>
     </article>
     <aside class="skills">
-        <div class="label">C++</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:60%">
-                60%
+        <button class="skills-button" onclick="showSkills()">Show Skills...</button>
+        <div class="skills-menu">
+            <div class="label">C++</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:60%">
+                    60%
+                </div>
             </div>
-        </div>
-        <div class="label">Java</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:50%">
-                50%
+            <div class="label">Java</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:35%">
+                    35%
+                </div>
             </div>
-        </div>
-        <div class="label">C#</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:35%">
-                35%
+            <div class="label">C#</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:45%">
+                    45%
+                </div>
             </div>
-        </div>
-        <div class="label">Python</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:40%">
-                40%
+            <div class="label">Python</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:30%">
+                    30%
+                </div>
             </div>
-        </div>
-        <div class="label">Unity 2D</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:35%">
-                35%
+            <div class="label">Unity 2D</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:40%">
+                    40%
+                </div>
             </div>
-        </div>
-        <div class="label">HTML</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:50%">
-                50%
+            <div class="label">React</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:40%">
+                    40%
+                </div>
             </div>
-        </div>
-        <div class="label">CSS</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:30%">
-                30%
+            <div class="label">TypeScript & JavaScript</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:80%">
+                    80%
+                </div>
             </div>
-        </div>
-        <div class="label">JavaScript</div>
-        <div class="progress-container">
-            <div class="progress-bar" style="width:30%">
-                30%
-            </div>
+            <!-- <div class="label">JavaScript</div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:30%">
+                    30%
+                </div>
+            </div> -->
         </div>
     </aside>
+    
+    <script>
+        const skillsButton = document.querySelector("button.skills-button");
+        const skillsMenu = document.querySelector("div.skills-menu");
+        
+        function showSkills() {
+            skillsMenu.style.display = "block";
+            skillsButton.innerHTML = "Hide Skills...";
+            skillsButton.setAttribute("onclick", "hideSkills()");
+        }
+
+        function hideSkills() {
+            skillsMenu.style.display = "none";
+            skillsButton.innerHTML = "Show Skills...";
+            skillsButton.setAttribute("onclick", "showSkills()");
+        }
+    </script>
+
 </body>
 
 </html>

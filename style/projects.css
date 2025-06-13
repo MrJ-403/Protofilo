@@ -6,10 +6,20 @@ body{
     "article article article";
 }
 
+header.projects {
+    padding: 10px 20px;
+    @media screen and (orientation: portrait) {
+        font-size: 4vw;
+    }
+    @media screen and (orientation: landscape) {
+        font-size: 4vh;
+    }
+}
+
 .project-button {
     display: inline-block;
     padding: 1vw;
-    border: solid 1px white;
+    border: solid 1px cornflowerblue;
     align-content: space-around;
 
     color:white;
@@ -21,11 +31,11 @@ body{
     text-decoration: none;
     word-wrap: break-word;
     
-    transition-duration: 450ms;
+    transition-duration: 0.3s;
 }
 
 .project-button:hover {
-    background-color: white;
+    background-color: cornflowerblue;
     color:black;
     font-size: 4vw;
     @media screen and (orientation:portrait){

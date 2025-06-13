@@ -83,7 +83,7 @@ nav {
     }    
 }
 .navButton:hover {
-    background-color: white;
+    background-color: cornflowerblue;
     color:black;
     font-size: 2vw;
     @media screen and (orientation:portrait){

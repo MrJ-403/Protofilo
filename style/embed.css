@@ -1,8 +1,9 @@
 div.embed {
     display: inline-flex;
-    border: black solid 3px;
+    border: cornflowerblue solid 3px;
+    border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.5);
-    align-items: center;
+    align-items: stretch;
     @media screen and (orientation: portrait) {
         flex-direction: column;
     }
@@ -11,42 +12,49 @@ div.embed {
 
 div.embed div.icon{
     padding: 1vw;
-    @media screen and (orientation: portrait)
+    /* @media screen and (orientation: portrait)
     {
         border-left:black solid 3px;
-        border-right:black solid 3px;
-    }
-    @media screen and (orientation:landscape)
-    {border-right: black solid 3px;}
+        border-right:black solid 3px; 
+    } */
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    display: inline;
+    @media screen and (orientation:landscape)
+    {
+        border-right: cornflowerblue solid 3px;
+    }
 }
 div.icon img {
     display: flex;
     position:relative;
     vertical-align: middle;
     align-content: center;
+    border-radius: 15px;
 }
 
 
 div.embed div.desc {
     padding: 1vw;
     @media screen and (orientation: portrait)
-    {border-top: black solid 3px;}
+    {border-top: cornflowerblue solid 3px;}
     @media screen and (orientation: portrait)
     {
-        padding: 1vw;
+        padding: 3vw;
         font-size:3vw;
     }
     @media screen and (orientation: landscape)
     {
-        padding: 1vh;
+        padding: 3vh;
         font-size: 3vh;
     }
 }
 
 div.embed h1 {
     color: white;
+    margin: 0;
 }
 
 div.embed h1:hover{
@@ -56,13 +64,18 @@ div.embed h1:hover{
 
 
 div.embed a.author {
-    color:aquamarine;
+    color:cornflowerblue;
+}
+
+div.embed a.author:hover{
+    text-decoration: underline;
 }
 
 div.embed a.link-button {
-    background-color:cornflowerblue;
-    border: cadetblue solid 3px;
-    border-radius: 20px;
+    background-color:black;
+    padding:5px;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
     /* @media screen and (orientation: portrait)
     {
         padding: 1vw;
@@ -73,9 +86,17 @@ div.embed a.link-button {
             padding: 1vh;
             font-size: 3vh;
             } */
-            color: white;
-            border-collapse:separate;
+    color: white;
+    border-collapse:separate;
+    transition-duration: 0.3s;
 }
+
+div.embed a.link-button:hover {
+    background-color: cornflowerblue;
+    color:black;
+    text-decoration: underline solid;
+}
+
 div.embed a{
     text-decoration: none;
 }

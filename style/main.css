@@ -14,12 +14,17 @@ header {
     word-wrap: break-word;
 }
 
-
+header.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px;
+}
 
 aside.skills {
     grid-area: aside;
     background: black;
-    padding: 5px;
+    padding: 1vw;
 }
 
 aside.skills table{
@@ -34,7 +39,7 @@ aside.skills table{
 .progress-bar{
     font-size:80%;
     text-align: right;
-    background-color: chocolate;
+    background-color: cornflowerblue;
 }
 
 img[src$="owner.jfif"] {
@@ -48,10 +53,6 @@ figure {
     font-size: 1.7vw;
 }
 
-header.projects {
-    padding: 10px 20px;
-}
-
 article{
     grid-area: article;
     padding: 10px 20px;
@@ -62,7 +63,6 @@ article{
     display: inline;
     font-family: sans-serif, Arial, Helvetica, serif;
     font-weight: bolder;
-    font-size: x-large;
     letter-spacing: 0.8px;
     -webkit-text-stroke: 0.8px black;
 }
@@ -82,19 +82,29 @@ article{
     }    
     
     figure {
-        width: 10vw;
-    }
-    
-    
-    header.main {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
+        width: 13vw;
     }
     
     aside.skills {
         display: flex;
         flex-direction: column;
+        font-size: 2vw;
+    }
+
+    div.skills-menu {
+        display: block;
+    }
+
+    button.skills-button {
+        display: none;
+    }
+
+    #smallAbout {
+        font-size: 4vh;
+    }
+
+    article p{
+        font-size: 2vw
     }
 }
 @media screen and (orientation:portrait){
@@ -111,24 +121,31 @@ article{
     }
     
     figure {
-        width: 10vh;
+        width: 13vh;
     }
-    
-    header.main {
-        display: block;
-        padding: 5px;
-        /* align-items: center; */
-        /* flex-direction: row; */
-    }
-    
     aside.skills {
-        display: flex;
-        flex-direction: row;
-        overflow-x: scroll;
+        font-size: 3vh;
     }
 
-    .progress-container {
-        width: 20vh;
+    button.skills-button {
+        font-size: 3vh;
+        background-color: transparent;
+        border: 1px solid cornflowerblue;
+        color: cornflowerblue;
+        transition-duration: 0.3s;
+    }
+
+    button.skills-button:active {
+        background-color: cornflowerblue;
+        color: black;
+    }
+
+    div.skills-menu {
+        display: none;
+    }
+
+    header.main {
+        flex-direction: column;
     }
 
     .progress-bar{
@@ -140,5 +157,13 @@ article{
         width: max-content;
         text-wrap: nowrap;
         margin: 0px 10px;
+    }
+
+    #smallAbout {
+        font-size: 4vh;
+    }
+
+    article p{
+        font-size: 3vh;
     }
 }

@@ -1,6 +1,6 @@
-html { 
+html {
     background-image: url(../resources/bg.jpg);
-    background-size:cover;
+    background-size: cover;
     background-position-x: center;
     background-position-y: center;
     background-repeat: no-repeat;
@@ -24,22 +24,19 @@ body {
     grid-template-rows: 10vh 85vh 5vh;
     grid-template-columns: 11vw 50vw;
 }
+
 h1 {
     color: white;
 }
+
 .header {
     background-color: black;
-    display:block;
+    display: block;
     grid-area: header;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
     text-align: center;
-    @media screen and (orientation: portrait){
-        font-size: 6vw;
-    }
-    @media screen and (orientation: landscape) {
-        font-size: 5vh;
-    }
+    font-size: 5vh;
     overflow: hidden;
     align-items: center;
     justify-content: center;
@@ -74,21 +71,15 @@ nav {
     width: 100%;
     align-content: space-around;
     transition-duration: 450ms;
-    @media screen and (orientation:portrait){
-        writing-mode: vertical-lr;
-    }
     font-size: 1.5vw;
-    @media screen and (orientation:portrait){
-        font-size: 2vh;
-    }    
+
 }
+
 .navButton:hover {
     background-color: cornflowerblue;
-    color:black;
+    color: black;
     font-size: 2vw;
-    @media screen and (orientation:portrait){
-        font-size: 2.5vh;
-    }    
+
     /*writing-mode:horizontal-tb;*/
 }
 
@@ -150,7 +141,8 @@ textarea {
     block-size: 40px;
 }
 
-a:link, a:visited{
+a:link,
+a:visited {
     color: white;
     text-decoration: none;
 }
@@ -161,4 +153,20 @@ a:link, a:visited{
 
 .frame {
     height: 100%;
+}
+
+@media screen and (orientation:portrait) {
+    .header {
+        font-size: 6vw;
+    }
+
+    .navButton {
+        writing-mode: vertical-lr;
+        font-size: 2vh;
+    }
+
+    .navButton:hover {
+        font-size: 2.5vh;
+    }
+
 }

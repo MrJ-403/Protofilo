@@ -1,45 +1,49 @@
-body{
+body {
     display: grid;
-    grid-template-areas: 
-    "header header header"
-    "article article article"
-    "article article article";
+    grid-template-areas:
+        "header header header"
+        "article article article"
+        "article article article";
+    word-break: break-word;
 }
 
 header.projects {
     padding: 10px 20px;
-    @media screen and (orientation: portrait) {
-        font-size: 4vw;
-    }
-    @media screen and (orientation: landscape) {
-        font-size: 4vh;
-    }
+    font-size: 4vh;
 }
 
 .project-button {
     display: inline-block;
     padding: 1vw;
+    margin: 0.5vw;
     border: solid 1px cornflowerblue;
     align-content: space-around;
 
-    color:white;
+    color: white;
     background-color: black;
     font-size: 4vw;
-    @media screen and (orientation:portrait){
-        font-size: 4vh;
-    }    
+    
     text-decoration: none;
     word-wrap: break-word;
     
     transition-duration: 0.3s;
 }
 
+
 .project-button:hover {
     background-color: cornflowerblue;
-    color:black;
+    color: black;
     font-size: 4vw;
-    @media screen and (orientation:portrait){
-        font-size: 4vh;
-    }    
+
     /*writing-mode:horizontal-tb;*/
+}
+@media screen and (orientation:portrait) {
+    
+    .project-button, .project-button:hover{
+        font-size: 4vh;
+    }
+
+    header.projects {
+        font-size: 4vw;
+    }
 }

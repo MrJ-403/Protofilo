@@ -64,7 +64,7 @@ article{
     font-family: sans-serif, Arial, Helvetica, serif;
     font-weight: bolder;
     letter-spacing: 0.8px;
-    -webkit-text-stroke: 0.8px black;
+    /* -webkit-text-stroke: 0.8px black; */
 }
 @media screen and (orientation:landscape){
     

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Article</title>
+  <link rel="stylesheet" href="output.css">
+</head>
+<body class="w-full bg-bg-white dark:bg-bg-dark sm:flex flex-shrink">
+  <div id="search" class="flex flex-col flex-1 sticky top-0 bg-bg-white border pb-1 dark:bg-bg-dark">
+    <input id="searchbar" type="text" placeholder="Search..." onchange="displayProjects()" class="w-full h-full sm:h-auto bg-bg-dark text-white border dark:border-white rounded-lg p-3 mb-1 focus:outline-none">
+    <div id="filters" class="flex sm:flex-col sm:p-1 dark:text-white text-black">
+      <!-- Filters will be added here by Javascript -->
+    </div>
+  </div>
+  <div id="content" class="w-full flex-3 overflow-y-auto">
+    <!-- Content will be added here by Javascript -->
+  </div>
+  <script>
+    var projects = [
+      {
+        "title": "Dog Adventure - Save the Sheep",
+        "category": "Video Games",
+        "author": "MrJ",
+        "author_url": "https://mrjs.itch.io/",
+        "image": "https://img.itch.zone/aW1nLzIwMjY2NjY0LnBuZw==/180x143%23c/3vYZxL.png",
+        "url": "https://mrjs.itch.io/dog-adventure-save-the-sheep"
+      },
+      {
+        "title": "Wordle Clone",
+        "category": "React Apps",
+        "author": "Johnny Sattah",
+        "author_url": "https://github.com/MrJ-403",
+        "image": "imgs/wordle_icon.png",
+        "url": "https://mrj-403.github.io/Protofilo/react/Wordle/index.html"
+      },
+      {
+        "title": "ToDo::List",
+        "category": "React Apps",
+        "author": "Johnny Sattah",
+        "author_url": "https://github.com/MrJ-403",
+        "image": "imgs/todolist_icon.png",
+        "url": "https://mrj-403.github.io/Protofilo/react/ToDoList/index.html"
+      },
+      {
+        "title": "WhatsApp Export Reader",
+        "category": "React Apps",
+        "author": "Johnny Sattah",
+        "author_url": "https://github.com/MrJ-403",
+        "image": "imgs/waer_icon.png",
+        "url": "https://mrj-403.github.io/Protofilo/react/ChatViewer/index.html"
+      },
+      {
+        "title": "Old Protofilo",
+        "category": "Websites",
+        "author": "Johnny Sattah",
+        "author_url": "https://github.com/MrJ-403",
+        "image": "imgs/old_protofilo_icon.png",
+        "url": "https://mrj-403.github.io/Protofilo/old_protofilo/index.html"
+      }
+    ];
+    
+    var categories = new Map();
+
+    var filtersContainer = document.getElementById('filters');
+    var selectedFilters = new Set();
+
+    //setup filters
+    for(var i = 0; i < projects.length; i++) {
+        categories.set(projects[i].category, categories.get(projects[i].category) + 1 || 1);
+    }
+
+    function displayProjects() {
+      document.getElementById('content').innerHTML = '';
+      var searchbar = document.getElementById('searchbar');
+      for(var i = 0; i < projects.length; i++) {
+        if((searchbar.value.length == 0 ||
+            searchbar.value.length > 0 && projects[i].title.toLowerCase().includes(searchbar.value.toLowerCase())
+          ) && selectedFilters.size == 0 ||
+            selectedFilters.size > 0 && selectedFilters.has(projects[i].category) && projects[i].title.toLowerCase().includes(searchbar.value.toLowerCase())) {
+          element = 
+          `
+          <div class="project-card">
+            <img src="${projects[i].image}" alt="${projects[i].title}"/>
+            <div class="flex flex-col pl-2 flex-1 min-w-0">
+              <h1 class="truncate dark:text-white">${projects[i].title}</h1>
+              ${projects[i].author ? `<a class="text-left dark:text-white" href="${projects[i].author_url}" target="_blank">${projects[i].author}</a>` : ''}
+              <p class="dark:text-white">${projects[i].category}</p>  
+            </div>
+            <a href="${projects[i].url}" target="_blank"><button class="w-16 h-16">Go</button></a>
+          </div>
+          `;
+          document.getElementById('content').innerHTML += element;
+        }
+      }
+    }
+    displayProjects();
+
+    var cats = Array.from(categories.keys());
+    for(var i = 0; i < cats.length; i++) {
+      filtersContainer.innerHTML +=
+        `<label for="${cats[i]}" class="selectable-buttons">${cats[i]}</label>
+        <input name="${cats[i]}" id="${cats[i]}" class="appearance-none" type="checkbox" onchange="chooseFilter(event)"/>`;
+    }
+
+    const htmlElement = document.documentElement;
+    // Check for saved theme preference in localStorage
+    if (localStorage.getItem('theme') == 'dark') {
+      htmlElement.classList.add('dark');
+    }
+
+    function chooseFilter(event){
+      var filter = event.target.parentNode.children;
+      var label;
+      for(var i = 0; i < filter.length; i++) {
+        if(filter[i].htmlFor == event.target.id) {
+          label = filter[i];
+          break;
+        }
+      }
+      if(event.target.checked){
+        label.classList.add('filter-active');
+        selectedFilters.add(event.target.id);
+      }
+      else {
+        label.classList.remove('filter-active');
+        selectedFilters.delete(event.target.id);
+      }
+      displayProjects();
+    }
+    
+  </script>
+</body>
+</html>

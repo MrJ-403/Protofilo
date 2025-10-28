@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Article</title>
+  <link rel="stylesheet" href="output.css">
+</head>
+<body class="w-full h-full bg-bg-white dark:bg-bg-dark">
+  <div class="block w-full bg-cover bg-[url('./imgs/bg.jpg')] p-5 sm:py-14 border-bg-white dark:border-bg-dark border-25 rounded-[4rem] sm:rounded-[8rem] bg-bottom bg-no-repeat animate-zoom-intro">
+    <div class="flex flex-col sm:flex-row items-center justify-between p-5 bg-bg-transparent border-2 border-white dark:border-bg-dark rounded-[3rem]  sm:rounded-full animate-slide-from-above">
+      <img src="imgs/owner.jfif" alt="Johnny Sattah" class="block w-35 h-35 rounded-full">
+      <p class="underline  text-center text-2xl font-bold m-5 p-5 bg-white dark:bg-bg-dark dark:text-white rounded-[2rem] sm:rounded-full">
+        Hello There!
+        I am Johnny Sattah, an inspired Developer aiming to achieve his dreams.
+      </p>
+    </div>
+    <p class="bg-bg-transparent text-center text-2xl font-bold mt-10 sm:m-10 p-10 border-white dark:border-bg-dark border-2 rounded-[2rem] sm:rounded-full animate-slide-from-above">
+      I've always been driven by a passion for programming.
+      My first attempt at web development at thirteen was a bit early, but it definitely sparked something.
+    </p>
+  </div>
+  <div id="animated-left">
+    <div>  
+      <p class="relative rounded-[3rem]">
+        For three years, I explored various programming languages on SoloLearn, starting with C#, then moving on to Java, and finally focusing on Python, which I studied extensively.
+      </p>
+    </div>
+    <div class="main-par">
+      <p>
+        I'm currently working towards my IT Engineering degree at Homs University in Syria, expecting to graduate in 2028.
+      </p>
+      <img src="./imgs/UniProjecte.PNG" class="right-img" alt="project"/>
+    </div>
+    <div class="main-par">
+      <img src="./imgs/uml.png" class="left-img" alt="svu-ipg203-hw-uml"/>
+      <p>
+        Also, I'm a student at the Syrian Virtual University, taking the TIC Program (Technical Institution of Computer), expecting to graduate in 2026-2027.
+      </p>
+    </div>
+    <div class="main-par">  
+      <p>
+        I'm particularly interested in Artificial Intelligence—I believe there's so much potential there and a lot of work to be done.
+      </p>
+      <img src="./imgs/Gemini_Generated_Image_AI.png" class="right-img" alt="ai"/>
+    </div>
+    <div class="main-par">
+      <img src="./imgs/game_icon.png" class="left-img" alt="game_icon"/>
+      <p>
+        Alongside my studies, I enjoy developing games as a hobby and hope to make it a key part of my future career.
+      </p>
+    </div>
+    <div>
+      <p class="relative rounded-[3rem]">
+        In case you want to explore my work, I added a Projects page you can visit which contains all of the projects I worked on including the upcoming ones!
+      </p>
+    </div>
+  </div>
+  <script>
+  const htmlElement = document.documentElement;
+    // Check for saved theme preference in localStorage
+    if (localStorage.getItem('theme') == 'dark') {
+      htmlElement.classList.add('dark');
+    }
+
+    var pars = document.getElementById("animated-left").getElementsByTagName('p');
+    var divs = document.getElementById("animated-left").getElementsByTagName('div');
+    var parObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          if (entry.target.classList.contains("out-view"))
+            {entry.target.classList.remove("out-view");}
+        } else if(entry.intersectionRatio<=0.1) {
+          entry.target.classList.add("out-view");
+          if (entry.target.classList.contains("in-view"))
+            {entry.target.classList.remove("in-view");}
+        }
+      });
+    }, {
+      threshold: [0.1,0.5],
+    })
+    var divObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains("pop-down"))
+            {entry.target.classList.remove("pop-down");}
+          entry.target.classList.add("pop-up");
+        } else if(entry.intersectionRatio<=0.1) {
+          entry.target.classList.add("pop-down");
+          if (entry.target.classList.contains("pop-up"))
+            {entry.target.classList.remove("pop-up");}
+        }
+      });
+    }, {
+      threshold: [0,0.5],
+      rootMargin: "-40% 100%",
+    })
+    for(var i = 0; i < pars.length; i++) {
+      parObserver.observe(pars[i]);
+    }
+    for(var i = 0; i < pars.length; i++) {
+      divObserver.observe(divs[i]);
+    }
+  </script>
+</body>
+</html>

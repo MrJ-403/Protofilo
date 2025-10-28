@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --animate-slide-from-above: slide-from-above 1s ease-in-out forwards;
+    --animate-slide-from-left: slide-from-left 1s ease-in-out forwards;
+    --animate-slide-to-left: slide-to-left 1s ease-in-out forwards;
+    --animate-zoom-intro: zoom-intro 1s ease-in-out forwards;
+    --animate-pop-up: pop-up 1s ease-in-out forwards;
+    --animate-pop-down: pop-down 1s ease-in-out forwards;
+    --color-bg-white: rgb(214,214,214);
+    --color-bg-dark: rgb(21,21,21);
+    --color-bg-transparent: rgba(255,255,255,0.2);
+    --color-text-1: rgba(255,255,255,0.8);
+    --color-text-2: rgba(255,255,255,0.6);
+}
+
+@layer base {
+    * {
+        @apply duration-300;
+    }
+
+    p {
+        @apply p-1;
+    }
+
+    .main-par {
+        @apply flex flex-col sm:flex-row relative justify-between items-center;
+    }
+
+    .selectable-buttons {
+        @apply select-none cursor-pointer p-2 sm:mb-1 rounded-lg text-lg dark:border-bg-white border-bg-dark border-1 border-solid;
+    }
+    .filter-active {
+        @apply dark:bg-white bg-bg-dark dark:text-black text-white;
+    }
+
+    button {
+        @apply bg-bg-dark text-white dark:bg-white dark:text-black rounded-lg p-2 m-1 border-1 border-solid border-bg-dark dark:border-bg-white;
+        @apply hover:bg-gray-800 dark:hover:bg-bg-white active:bg-gray-500
+    }
+
+    .project-card {
+        @apply flex items-center justify-between flex-grow p-2 m-1 border dark:border-white rounded-3xl hover:text-3xl;
+    }
+    .project-card img{
+        @apply h-16 aspect-square border object-cover border-black dark:border-white m-1 rounded-lg;
+    }
+
+    .project-card:hover > img {
+        @apply duration-300 h-24;
+    }
+
+    .project-card a{
+        @apply w-fit text-gray-800 underline hover:text-gray-600 text-lg;
+    }
+
+    .in-view {
+        @apply animate-slide-from-left;
+    }
+
+    .out-view {
+        @apply animate-slide-to-left;
+    }
+
+    .pop-up {
+        @apply animate-pop-up;
+    }
+    .pop-down {
+        @apply animate-pop-down;
+    }
+
+    div#animated-left div p{
+        @apply fixed bottom-0 p-5 m-4 text-xl rounded-b-[3rem] bg-[rgba(213,213,213,0.6)] dark:bg-[rgba(0,0,0,0.6)] sm:bg-transparent sm:dark:bg-transparent sm:m-1 sm:p-1 sm:relative dark:text-white sm:text-3xl;
+    }
+
+    div#animated-left div{
+        @apply m-5 p-5 dark:text-white scale-75 border-bg-dark dark:border-bg-white border-2 rounded-[4rem] sm:rounded-full overflow-clip;
+    }
+
+    div#animated-left div img.right-img{
+        @apply rounded-[3rem] sm:rounded-r-full sm:h-70 sm:relative z-[-1];
+    }
+
+    div#animated-left div img.left-img{
+        @apply rounded-[3rem] sm:rounded-l-full sm:h-70 sm:relative z-[-1];
+    }
+
+    nav a {
+        @apply px-4 py-2 flex-1 flex-grow-1 text-center hover:underline hover:bg-white text-white hover:text-black ;
+    }
+
+    .reverse {
+        animation-direction: reverse;
+    }
+}
+
+@keyframes slide-from-above {
+    from {
+        opacity: 0.2;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slide-from-left {
+    from {
+        opacity: 0.1;
+        transform: translateX(-60%);
+    }
+    to {
+        opacity:1;
+        transform: translateX(0);
+    }
+}
+@keyframes slide-to-left {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0.1;
+        transform: translateX(-60%);
+    }
+}
+
+@keyframes zoom-intro {
+    from {
+        scale: 0.5;
+        opacity: 0.2;
+    }
+    to {
+        /* background-size: ; */
+        scale: 1;
+        opacity: 1;
+    }
+}
+@keyframes pop-up {
+    from {
+        scale: 0.75;
+    }
+    to {
+        scale: 1;
+    }
+}
+@keyframes pop-down {
+    from {
+        scale: 1;
+    }
+    to {
+        scale: 0.75;
+    }
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}

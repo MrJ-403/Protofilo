@@ -1,29 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>
-            Johnny Sattah
-        </title>
-        <link rel="stylesheet" type="text/css" href="style/frame.css" />
-        <link rel="icon" type="image/png" href="resources/logo.png"/>
-    </head>
-    <body>
-        <div class="header">
-            Johnny Sattah - Protofilo
-        </div>
-        <nav>
-            <a class="navButton" href="main.html" target="frame">Main Page</a>
-            <!-- <a class="navButton" href="info.html" target="frame">Information</a> -->
-            <a class="navButton" href="projects.html" target="frame">Projects</a>
-            <a class="navButton" href="contact.html" target="frame">Contact Me</a>
-        </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Johnny Sattah</title>
+  <link rel="stylesheet" href="src/output.css">
+</head>
+<body class="flex flex-col w-full h-full bg-bg-white dark:bg-bg-dark">
+  <header class="flex flex-col sm:flex-row justify-between items-stretch z-50 bg-bg-dark text-white p-3 drop-shadow-2xl">
+    <h1 class="flex-1 text-center sm:text-left flex-grow-3 text-4xl font-bold">Johnny Sattah</h1>
+    <nav class="flex flex-grow-1 justify-between items-center">
+      <a href="src/main.html" target="container">Home</a>
+      <a href="src/projects.html" target="container">Projects</a>
+      <a href="src/contact.html" target="container">Contact</a>
+      <svg xmlns="http://www.w3.org/2000/svg" class="bottom-[10%] h-12 w-12 duration-150" onclick='themeSwitch()' fill="none" viewbox="0 0 64 64" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" class='opacity-0 dark:opacity-100' d="
+        M12 12l6 6 
+        M5 32l8 0
+        M12 52l6 -6
+        M32 59l0 -8
+        M52 52l-6 -6
+        M59 32l-8 0
+        M52 12l-6 6
+        M32 5l0 8
+        " />
+        <circle cx="32" cy="32" r="15" class='stroke-white fill-white' />
+        <circle cx="25" cy="25" r="13" class='dark:opacity-0 opacity-100 fill-bg-dark stroke-bg-dark'/>
+      </svg>
+    </nav>
+  </header>
+  <iframe class="flex-1 flex-grow-1 w-full" id="container" name="container" src="src/main.html"></iframe>
+  <script>
 
-        <article>
-            <div class="frame">
-            <iframe name="frame" width="100%" height="100%" style="border: 0px;" src="main.html"></iframe>
-            </div>
-        </article>
-        <footer>All rights reserved &copy;</footer>
-    </body>
+    const htmlElement = document.documentElement;
+    // Check for saved theme preference in localStorage
+    if (localStorage.getItem('theme') == 'dark') {
+      htmlElement.classList.add('dark');
+      document.getElementById('container').contentDocument.documentElement.classList.add('dark');
+    }
+  
+    function themeSwitch() {
+      console.log('switch theme')
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        document.getElementById('container').contentDocument.documentElement.classList.remove('dark')
+        localStorage.setItem('theme', 'light');
+      } else {
+        htmlElement.classList.add('dark');
+        document.getElementById('container').contentDocument.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark');
+      }
+    };
+  </script>
+</body>
 </html>
